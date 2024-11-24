@@ -1,0 +1,5 @@
+[console_scripts]
+rosetta_ddg_aggregate = RosettaDDGPrediction.rosetta_ddg_aggregate:main
+rosetta_ddg_check_run = RosettaDDGPrediction.rosetta_ddg_check_run:main
+rosetta_ddg_plot = RosettaDDGPrediction.rosetta_ddg_plot:main
+rosetta_ddg_run = RosettaDDGPrediction.rosetta_ddg_run:main

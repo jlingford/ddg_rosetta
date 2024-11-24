@@ -1,0 +1,9 @@
+biopython
+dask
+distributed
+matplotlib
+MDAnalysis
+numpy
+pandas
+pyyaml
+seaborn
