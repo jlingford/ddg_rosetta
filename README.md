@@ -1,61 +1,76 @@
-Cancer Structural Biology, Danish Cancer Society Research Center, 2100, Copenhagen, Denmark
-
-Cancer Systems Biology, Health and Technology Department, Section for Bioinformatics, 2800, Lyngby, Denmark
-
 # RosettaDDGPrediction
-
-**Rosetta version**: 3.12 and 2022.11
-
-
 
 ## Overview
 
 RosettaDDGPrediction is a Python package to run Rosetta-based protocols for the prediction of the ΔΔG of stability upon mutation of a monomeric protein or the ΔΔG of binding upon mutation of a protein complex and analyze the results.
 
-## Caveats
-
-### Rosetta options and defaults
-
-Rosetta defaults for command line options and the options themselves may (and some are likely to) change over time.
-
-The specific "Rosetta version" and the "Last updated" timestamp specified above can be useful to address inconsistencies that may arise between the content of this file and more recent Rosetta versions.
-
-We will try to keep the protocols up-to-date with respect to changes in Rosetta, adjusting them in case they affect the expected behaviour of our code. However, we advise every user not to take RosettaDDGPrediction as a "black box" but instead spending a bit of time understanding the workflow of the protocols and the rationale behind them, which is also useful to understand their applicability to specific cases of study and their inherent limitations.
-
-### Working with post-translational modifications and non-canonical residues
-
-**Important: none of the protcols implemented so far has been benchmarked for post-translational modifications or non-canonical residues, therefore the reliability of the calculations on such residues must be taken with a grain of salt.**
-
-Unfortunately, none of the protocols included in the package so far is capable of handling mutations to some post-traslationally modified residues (such as phosphorylated ones) because of design choices in the Rosetta suite itself, which considers them *variants* of the canonical amino acids instead of proper non-canonical residues.
-
-However, all protocols implemented so far are able to handle mutations to non-canonical residues, such as D-amino acids.
-
-For `cartddg` protocols, there seems to be a bug in Rosetta that causes a crash when either a mutation to a non-canonical residue is specified after a mutation to a canonical residue (when it is a simultaneous mutation, see the "Input files" section below) or when multiple simultaneous mutations to non-canonical residues are requested. We posted the issue on the RosettaCommons forum, and the resulting thread can be seen by going to [this page](https://www.rosettacommons.org/node/10846).
-
-## Requirements
-
-The user must have Python v3.7 or higher installed, together with the Rosetta modelling suite (which can be found [here](https://www.rosettacommons.org/software/license-and-download)).
-
-Required Python dependencies, if not already present, will be installed along with RosettaDDGPrediction.
+Forked from <https://github.com/ELELAB/RosettaDDGPrediction>
 
 ## Installation
 
-1. (Optional) We recommend installing this package inside a virtual environment. Please see [here](https://docs.python.org/3/tutorial/venv.html) how to create a Python virtual environment. Upon successful creation, activate the virtual environment before moving to the second step.
+```bash
+# clone repo
+git clone https://github.com/jlingford/ddg_rosetta.git
+cd ddg_rosetta
 
-2. To install the package, download and unzip this folder, enter the folder and run the following command:
+# make python modules executable
+python3 setup.py install
 
-   `python3.7 setup.py install`
+# install all dependencies with conda or mamba (mamba is faster)
+# NOTE: rosetta dependency takes a long time to install
+mamba create -n ddg_rosetta -f requirements.yaml
+mamba activate ddg_rosetta
+```
 
 Upon successful installation, you should have three executable (`rosetta_ddg_run`, `rosetta_ddg_aggregate` and `rosetta_ddg_plot`) available to perform the various steps of data collection and analysis.
 
 ## Usage
 
-Please refer to the user guide for how to use RosettaDDGPrediction.
+Please refer to the user guide .pdf for how to use RosettaDDGPrediction.
 
+Examples of how to run each step:
 
-## Citation 
+1. Run Rosetta
+
+```bash
+# ensure that pdb file is in pdb_input dir
+# ensure mutations are specified in muts.txt
+# the rosetta is installed under the conda or mamba dir for ddg_rosetta
+
+rosetta_ddg_run \
+    -p pdb_input/wt_monomer.pdb \
+    -l muts/muts.txt \
+    -cr ./config/config_run/cartddg2020_ref2015.yaml \
+    -cs ./config/config_settings/rosettampi.yaml \
+    -r /home/$USER/micromamba/envs/ddg_rosetta
+```
+
+This outputs two new dirs, `relax` and `cartesian`, which is populated with info required by `rosetta_ddg_aggregate`.
+
+2. Aggregate the rosetta data
+
+```bash
+rosetta_ddg_aggregate \
+    -ca ./config/config_aggregate/aggregate.yaml \
+    -cr ./config/config_run/cartddg_ref2015.yaml \
+    -cs ./config/config_settings/nompi.yaml \
+    -mf cartesian/mutinfo.txt
+```
+
+The aggreagation step creates two .csv files required for the final plotting step
+
+3. Plot the data
+
+```bash
+rosetta_ddg_plot \
+    -i ddg_mutations_structures.csv \
+    -o test3 \
+    -cp ./config/config_plot/total_heatmap.yaml
+```
+
+## Citation
 
 RosettaDDGPrediction for high-throughput mutational scans: from stability to binding
 
 Valentina Sora, Adrian Otamendi Laspiur, Kristine Degn, Matteo Arnaudi, Mattia Utichi, Ludovica Beltrame, Dayana De Menezes, Matteo Orlandi, Olga Rigina, Peter Wad Sackett, Karin Wadt, Kjeld Schmiegelow, Matteo Tiberti, Elena Papaleo*
-under revision for Protein Science and on biorxiv:  https://doi.org/10.1101/2022.09.02.506350 
+under revision for Protein Science and on biorxiv:  <https://doi.org/10.1101/2022.09.02.506350>
