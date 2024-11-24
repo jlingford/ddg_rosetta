@@ -1,0 +1,365 @@
+********  (C) Copyright Rosetta Commons Member Institutions.  ***************
+* Use of Rosetta for commercial purposes may require purchase of a license. *
+********  See LICENSE.md or email license@uw.edu for more details. **********
+core.init: [2024-11-23  0:13:41:] Checking for fconfig files in pwd and ./rosetta/flags 
+core.init: [2024-11-23  0:13:41:] Rosetta version information
+core.init: [2024-11-23  0:13:41:] Package:                 devel
+core.init: [2024-11-23  0:13:41:] Testing Server Revision: None
+core.init: [2024-11-23  0:13:41:] PEP-440 Version:         2024.42+HEAD.3366cf78a3
+core.init: [2024-11-23  0:13:41:] Git Commit:              3366cf78a3df04339d1982e94531b77b098ddb99
+core.init: [2024-11-23  0:13:41:] URL:                     git@github.com:RosettaCommons/rosetta.git
+core.init: [2024-11-23  0:13:41:] Date:                    2024-10-11T08:24:04
+core.init: [2024-11-23  0:13:41:] command: /home/james/micromamba/envs/ddg_rosetta/bin/rosetta_scripts.cxx11threadserialization.linuxclangrelease @ /home/james/Documents/protein_struct_tools/RosettaDDGPrediction/relax/flags.txt
+basic.random.init_random_generator: [2024-11-23  0:13:41:] 'RNG device' seed mode, using '/dev/urandom', seed=1777126595 seed_offset=0 real_seed=1777126595 thread_index=0
+basic.random.init_random_generator: [2024-11-23  0:13:41:] RandomGenerator:init: Normal mode, seed=1777126595 RG_type=mt19937
+core.init: [2024-11-23  0:13:41:] Resolved executable path: /home/james/micromamba/envs/ddg_rosetta/bin/rosetta_scripts.cxx11threadserialization.linuxclangrelease
+core.init: [2024-11-23  0:13:41:] Looking for database based on location of executable: /home/james/micromamba/envs/ddg_rosetta/bin/../database/
+protocols.jd2.PDBJobInputter: [2024-11-23  0:13:41:] Instantiate PDBJobInputter
+protocols.jd2.PDBJobInputter: [2024-11-23  0:13:41:] PDBJobInputter::fill_jobs
+protocols.jd2.PDBJobInputter: [2024-11-23  0:13:41:] pushed /home/james/Documents/protein_struct_tools/RosettaDDGPrediction/pdb_input/wt_monomer.pdb nstruct index 1
+protocols.evaluation.ChiWellRmsdEvaluatorCreator: [2024-11-23  0:13:41:] Evaluation Creator active ... 
+protocols.jd2.PDBJobInputter: [2024-11-23  0:13:41:] PDBJobInputter::pose_from_job
+protocols.jd2.PDBJobInputter: [2024-11-23  0:13:41:] filling pose from PDB /home/james/Documents/protein_struct_tools/RosettaDDGPrediction/pdb_input/wt_monomer.pdb
+core.chemical.GlobalResidueTypeSet: [2024-11-23  0:13:41:] Finished initializing fa_standard residue type set.  Created 985 residue types
+core.chemical.GlobalResidueTypeSet: [2024-11-23  0:13:41:] Total time to initialize 0.558251 seconds.
+core.import_pose.import_pose: [2024-11-23  0:13:41:] File '/home/james/Documents/protein_struct_tools/RosettaDDGPrediction/pdb_input/wt_monomer.pdb' automatically determined to be of type PDB
+core.io.pose_from_sfr.PoseFromSFRBuilder: [2024-11-23  0:13:41:] [ WARNING ] discarding 2 atoms at position 1 in file /home/james/Documents/protein_struct_tools/RosettaDDGPrediction/pdb_input/wt_monomer.pdb. Best match rsd_type:  MET:NtermProteinFull
+protocols.rosetta_scripts.RosettaScriptsParser: [2024-11-23  0:13:41:] dock_design_filename=/home/james/.cache/Python-Eggs/RosettaDDGPrediction-0.0.1-py3.12.egg-tmp/RosettaDDGPrediction/RosettaScripts/Cartddg2020_relax.xml
+protocols.rosetta_scripts.RosettaScriptsParser: [2024-11-23  0:13:41:] Variable substitution will occur with the following values: '%%repeats%%'='4';  '%%scfname%%'='ref2015_cart';  
+protocols.rosetta_scripts.RosettaScriptsParser: [2024-11-23  0:13:41:] Substituted script:
+<ROSETTASCRIPTS>
+    <SCOREFXNS>
+        <ScoreFunction name="fullatom" weights="ref2015_cart" symmetric="0">
+        </ScoreFunction>
+	</SCOREFXNS>
+	<MOVERS>
+        <FastRelax name="fastrelax" scorefxn="fullatom" cartesian="1" repeats="4"/> 
+	</MOVERS>
+	<PROTOCOLS>
+        <Add mover="fastrelax"/>
+    </PROTOCOLS>
+    <OUTPUT scorefxn="fullatom"/>
+ 
+</ROSETTASCRIPTS>
+protocols.rosetta_scripts.RosettaScriptsParser: [2024-11-23  0:13:41:] Validating input script...
+protocols.rosetta_scripts.RosettaScriptsSchemaValidator: [2024-11-23  0:13:41:] Generating XML Schema for rosetta_scripts...
+protocols.rosetta_scripts.RosettaScriptsSchemaValidator: [2024-11-23  0:13:42:] ...done
+protocols.rosetta_scripts.RosettaScriptsSchemaValidator: [2024-11-23  0:13:42:] Initializing schema validator...
+protocols.rosetta_scripts.RosettaScriptsSchemaValidator: [2024-11-23  0:13:46:] ...done
+protocols.rosetta_scripts.RosettaScriptsParser: [2024-11-23  0:13:46:] ...done
+protocols.rosetta_scripts.RosettaScriptsParser: [2024-11-23  0:13:46:] Parsed script:
+<ROSETTASCRIPTS>
+	<SCOREFXNS>
+		<ScoreFunction name="fullatom" symmetric="0" weights="ref2015_cart"/>
+	</SCOREFXNS>
+	<MOVERS>
+		<FastRelax cartesian="1" name="fastrelax" repeats="4" scorefxn="fullatom"/>
+	</MOVERS>
+	<PROTOCOLS>
+		<Add mover="fastrelax"/>
+	</PROTOCOLS>
+	<OUTPUT scorefxn="fullatom"/>
+</ROSETTASCRIPTS>
+core.scoring.ScoreFunctionFactory: [2024-11-23  0:13:46:] SCOREFUNCTION: ref2015
+core.scoring.etable: [2024-11-23  0:13:46:] Starting energy table calculation
+core.scoring.etable: [2024-11-23  0:13:46:] smooth_etable: changing atr/rep split to bottom of energy well
+core.scoring.etable: [2024-11-23  0:13:46:] smooth_etable: spline smoothing lj etables (maxdis = 6)
+core.scoring.etable: [2024-11-23  0:13:46:] smooth_etable: spline smoothing solvation etables (max_dis = 6)
+core.scoring.etable: [2024-11-23  0:13:47:] Finished calculating energy tables.
+basic.io.database: [2024-11-23  0:13:47:] Database file opened: scoring/score_functions/hbonds/ref2015_params/HBPoly1D.csv
+basic.io.database: [2024-11-23  0:13:47:] Database file opened: scoring/score_functions/hbonds/ref2015_params/HBFadeIntervals.csv
+basic.io.database: [2024-11-23  0:13:47:] Database file opened: scoring/score_functions/hbonds/ref2015_params/HBEval.csv
+basic.io.database: [2024-11-23  0:13:47:] Database file opened: scoring/score_functions/hbonds/ref2015_params/DonStrength.csv
+basic.io.database: [2024-11-23  0:13:47:] Database file opened: scoring/score_functions/hbonds/ref2015_params/AccStrength.csv
+basic.io.database: [2024-11-23  0:13:47:] Database file opened: scoring/score_functions/rama/fd/all.ramaProb
+basic.io.database: [2024-11-23  0:13:47:] Database file opened: scoring/score_functions/rama/fd/prepro.ramaProb
+basic.io.database: [2024-11-23  0:13:47:] Database file opened: scoring/score_functions/omega/omega_ppdep.all.txt
+basic.io.database: [2024-11-23  0:13:47:] Database file opened: scoring/score_functions/omega/omega_ppdep.gly.txt
+basic.io.database: [2024-11-23  0:13:47:] Database file opened: scoring/score_functions/omega/omega_ppdep.pro.txt
+basic.io.database: [2024-11-23  0:13:47:] Database file opened: scoring/score_functions/omega/omega_ppdep.valile.txt
+basic.io.database: [2024-11-23  0:13:47:] Database file opened: scoring/score_functions/P_AA_pp/P_AA
+basic.io.database: [2024-11-23  0:13:47:] Database file opened: scoring/score_functions/P_AA_pp/P_AA_n
+core.scoring.P_AA: [2024-11-23  0:13:47:] shapovalov_lib::shap_p_aa_pp_smooth_level of 1( aka low_smooth ) got activated.
+basic.io.database: [2024-11-23  0:13:47:] Database file opened: scoring/score_functions/P_AA_pp/shapovalov/10deg/kappa131/a20.prop
+core.scoring.etable: [2024-11-23  0:13:47:] Starting energy table calculation
+core.scoring.etable: [2024-11-23  0:13:47:] smooth_etable: changing atr/rep split to bottom of energy well
+core.scoring.etable: [2024-11-23  0:13:47:] smooth_etable: spline smoothing lj etables (maxdis = 6)
+core.scoring.etable: [2024-11-23  0:13:47:] smooth_etable: spline smoothing solvation etables (max_dis = 6)
+core.scoring.etable: [2024-11-23  0:13:48:] Finished calculating energy tables.
+basic.io.database: [2024-11-23  0:13:48:] Database file opened: scoring/score_functions/PairEPotential/pdb_pair_stats_fine
+basic.io.database: [2024-11-23  0:13:48:] Database file opened: scoring/score_functions/InterchainPotential/interchain_env_log.txt
+basic.io.database: [2024-11-23  0:13:48:] Database file opened: scoring/score_functions/InterchainPotential/interchain_pair_log.txt
+basic.io.database: [2024-11-23  0:13:48:] Database file opened: scoring/score_functions/EnvPairPotential/env_log.txt
+basic.io.database: [2024-11-23  0:13:48:] Database file opened: scoring/score_functions/EnvPairPotential/cbeta_den.txt
+basic.io.database: [2024-11-23  0:13:48:] Database file opened: scoring/score_functions/EnvPairPotential/pair_log.txt
+basic.io.database: [2024-11-23  0:13:48:] Database file opened: scoring/score_functions/EnvPairPotential/cenpack_log.txt
+core.scoring.ramachandran: [2024-11-23  0:13:48:] shapovalov_lib::shap_rama_smooth_level of 4( aka highest_smooth ) got activated.
+basic.io.database: [2024-11-23  0:13:48:] Database file opened: scoring/score_functions/rama/shapovalov/kappa25/all.ramaProb
+basic.io.database: [2024-11-23  0:13:48:] Database file opened: scoring/score_functions/rama/flat/avg_L_rama.dat
+core.scoring.ramachandran: [2024-11-23  0:13:48:] Reading custom Ramachandran table from scoring/score_functions/rama/flat/avg_L_rama.dat.
+basic.io.database: [2024-11-23  0:13:48:] Database file opened: scoring/score_functions/rama/flat/sym_all_rama.dat
+core.scoring.ramachandran: [2024-11-23  0:13:48:] Reading custom Ramachandran table from scoring/score_functions/rama/flat/sym_all_rama.dat.
+basic.io.database: [2024-11-23  0:13:48:] Database file opened: scoring/score_functions/rama/flat/sym_G_rama.dat
+core.scoring.ramachandran: [2024-11-23  0:13:48:] Reading custom Ramachandran table from scoring/score_functions/rama/flat/sym_G_rama.dat.
+basic.io.database: [2024-11-23  0:13:48:] Database file opened: scoring/score_functions/rama/flat/sym_P_rama.dat
+core.scoring.ramachandran: [2024-11-23  0:13:48:] Reading custom Ramachandran table from scoring/score_functions/rama/flat/sym_P_rama.dat.
+basic.io.database: [2024-11-23  0:13:48:] Database file opened: scoring/score_functions/rama/flat/avg_L_rama_str.dat
+core.scoring.ramachandran: [2024-11-23  0:13:48:] Reading custom Ramachandran table from scoring/score_functions/rama/flat/avg_L_rama_str.dat.
+basic.io.database: [2024-11-23  0:13:48:] Database file opened: scoring/score_functions/rama/flat/sym_all_rama_str.dat
+core.scoring.ramachandran: [2024-11-23  0:13:48:] Reading custom Ramachandran table from scoring/score_functions/rama/flat/sym_all_rama_str.dat.
+basic.io.database: [2024-11-23  0:13:48:] Database file opened: scoring/score_functions/rama/flat/sym_G_rama_str.dat
+core.scoring.ramachandran: [2024-11-23  0:13:48:] Reading custom Ramachandran table from scoring/score_functions/rama/flat/sym_G_rama_str.dat.
+basic.io.database: [2024-11-23  0:13:48:] Database file opened: scoring/score_functions/rama/flat/sym_P_rama_str.dat
+core.scoring.ramachandran: [2024-11-23  0:13:48:] Reading custom Ramachandran table from scoring/score_functions/rama/flat/sym_P_rama_str.dat.
+core.energy_methods.CartesianBondedEnergy: [2024-11-23  0:13:48:] Initializing IdealParametersDatabase with default Ks=300 , 80 , 80 , 10 , 80
+basic.io.database: [2024-11-23  0:13:48:] Database file opened: scoring/score_functions/bondlength_bondangle/default-lengths.txt
+core.energy_methods.CartesianBondedEnergy: [2024-11-23  0:13:48:] Read 759 bb-independent lengths.
+basic.io.database: [2024-11-23  0:13:48:] Database file opened: scoring/score_functions/bondlength_bondangle/default-angles.txt
+core.energy_methods.CartesianBondedEnergy: [2024-11-23  0:13:48:] Read 1434 bb-independent angles.
+basic.io.database: [2024-11-23  0:13:48:] Database file opened: scoring/score_functions/bondlength_bondangle/default-torsions.txt
+core.energy_methods.CartesianBondedEnergy: [2024-11-23  0:13:48:] Read 1 bb-independent torsions.
+basic.io.database: [2024-11-23  0:13:48:] Database file opened: scoring/score_functions/bondlength_bondangle/default-improper.txt
+core.energy_methods.CartesianBondedEnergy: [2024-11-23  0:13:48:] Read 529 bb-independent improper tors.
+protocols.jd2.parser.ScoreFunctionLoader: [2024-11-23  0:13:48:] defined score function "fullatom" with weights "ref2015_cart"
+protocols.jd2.parser.ScoreFunctionLoader: [2024-11-23  0:13:48:] Scorefunction tag contains 'symmetric' option. This is no longer needed.
+protocols.relax.RelaxScriptManager: [2024-11-23  0:13:48:] Reading relax scripts list from database.
+core.scoring.ScoreFunctionFactory: [2024-11-23  0:13:48:] SCOREFUNCTION: ref2015
+protocols.relax.RelaxScriptManager: [2024-11-23  0:13:48:] Looking for MonomerRelax2019.txt
+protocols.relax.RelaxScriptManager: [2024-11-23  0:13:48:] ================== Reading script file: /home/james/micromamba/envs/ddg_rosetta/bin/../database/sampling/relax_scripts/MonomerRelax2019.txt ==================
+protocols.relax.RelaxScriptManager: [2024-11-23  0:13:48:] repeat %%nrepeats%%
+protocols.relax.RelaxScriptManager: [2024-11-23  0:13:48:] coord_cst_weight 1.0
+protocols.relax.RelaxScriptManager: [2024-11-23  0:13:48:] scale:fa_rep 0.040
+protocols.relax.RelaxScriptManager: [2024-11-23  0:13:48:] repack
+protocols.relax.RelaxScriptManager: [2024-11-23  0:13:48:] scale:fa_rep 0.051
+protocols.relax.RelaxScriptManager: [2024-11-23  0:13:48:] min 0.01
+protocols.relax.RelaxScriptManager: [2024-11-23  0:13:48:] coord_cst_weight 0.5
+protocols.relax.RelaxScriptManager: [2024-11-23  0:13:48:] scale:fa_rep 0.265
+protocols.relax.RelaxScriptManager: [2024-11-23  0:13:48:] repack
+protocols.relax.RelaxScriptManager: [2024-11-23  0:13:48:] scale:fa_rep 0.280
+protocols.relax.RelaxScriptManager: [2024-11-23  0:13:48:] min 0.01
+protocols.relax.RelaxScriptManager: [2024-11-23  0:13:48:] coord_cst_weight 0.0
+protocols.relax.RelaxScriptManager: [2024-11-23  0:13:48:] scale:fa_rep 0.559
+protocols.relax.RelaxScriptManager: [2024-11-23  0:13:48:] repack
+protocols.relax.RelaxScriptManager: [2024-11-23  0:13:48:] scale:fa_rep 0.581
+protocols.relax.RelaxScriptManager: [2024-11-23  0:13:48:] min 0.01
+protocols.relax.RelaxScriptManager: [2024-11-23  0:13:48:] coord_cst_weight 0.0
+protocols.relax.RelaxScriptManager: [2024-11-23  0:13:48:] scale:fa_rep 1
+protocols.relax.RelaxScriptManager: [2024-11-23  0:13:48:] repack
+protocols.relax.RelaxScriptManager: [2024-11-23  0:13:48:] min 0.00001
+protocols.relax.RelaxScriptManager: [2024-11-23  0:13:48:] accept_to_best
+protocols.relax.RelaxScriptManager: [2024-11-23  0:13:48:] endrepeat
+protocols.rosetta_scripts.RosettaScriptsParser: [2024-11-23  0:13:48:] Defined mover named "fastrelax" of type FastRelax
+protocols.rosetta_scripts.ParsedProtocol: [2024-11-23  0:13:48:] ParsedProtocol mover with the following settings
+protocols.rosetta_scripts.ParsedProtocol: [2024-11-23  0:13:48:] Added mover "fastrelax"
+protocols.jd2.PDBJobInputter: [2024-11-23  0:13:48:] PDBJobInputter::pose_from_job
+protocols.jd2.PDBJobInputter: [2024-11-23  0:13:48:] filling pose from saved copy /home/james/Documents/protein_struct_tools/RosettaDDGPrediction/pdb_input/wt_monomer.pdb
+protocols.rosetta_scripts.ParsedProtocol: [2024-11-23  0:13:48:] =======================BEGIN MOVER FastRelax - fastrelax=======================
+core.energy_methods.CartesianBondedEnergy: [2024-11-23  0:13:48:] Creating new peptide-bonded energy container (152)
+basic.io.database: [2024-11-23  0:13:48:] Database file opened: scoring/score_functions/elec_cp_reps.dat
+core.scoring.elec.util: [2024-11-23  0:13:48:] Read 40 countpair representative atoms
+core.pack.dunbrack.RotamerLibrary: [2024-11-23  0:13:48:] shapovalov_lib_fixes_enable option is true.
+core.pack.dunbrack.RotamerLibrary: [2024-11-23  0:13:48:] shapovalov_lib::shap_dun10_smooth_level of 1( aka lowest_smooth ) got activated.
+core.pack.dunbrack.RotamerLibrary: [2024-11-23  0:13:48:] Binary rotamer library selected: /home/james/micromamba/envs/ddg_rosetta/bin/../database/rotamer/shapovalov/StpDwn_0-0-0/Dunbrack10.lib.bin
+core.pack.dunbrack.RotamerLibrary: [2024-11-23  0:13:48:] Using Dunbrack library binary file '/home/james/micromamba/envs/ddg_rosetta/bin/../database/rotamer/shapovalov/StpDwn_0-0-0/Dunbrack10.lib.bin'.
+core.pack.dunbrack.RotamerLibrary: [2024-11-23  0:13:48:] Dunbrack 2010 library took 0.119185 seconds to load from binary
+protocols.relax.FastRelax: [2024-11-23  0:13:48:] CMD: repeat  767.141  0  0  0.55
+protocols.relax.FastRelax: [2024-11-23  0:13:48:] CMD: coord_cst_weight  767.141  0  0  0.55
+protocols.relax.FastRelax: [2024-11-23  0:13:48:] CMD: scale:fa_rep  709.199  0  0  0.022
+core.pack.task: [2024-11-23  0:13:48:] Packer task: initialize from command line() 
+core.pack.pack_rotamers: [2024-11-23  0:13:48:] built 2122 rotamers at 152 positions.
+core.pack.pack_rotamers: [2024-11-23  0:13:48:] Requesting all available threads for interaction graph computation.
+core.pack.interaction_graph.interaction_graph_factory: [2024-11-23  0:13:48:] Instantiating DensePDInteractionGraph
+basic.thread_manager.RosettaThreadManager: [2024-11-23  0:13:48:] Creating a thread pool of 1 threads.
+basic.thread_manager.RosettaThreadPool: [2024-11-23  0:13:48:] Launched 0 new threads.
+core.pack.rotamer_set.RotamerSets: [2024-11-23  0:13:49:] Completed interaction graph pre-calculation in 1 available threads (1 had been requested).
+protocols.relax.FastRelax: [2024-11-23  0:13:49:] CMD: repack  -203.874  0  0  0.022
+protocols.relax.FastRelax: [2024-11-23  0:13:49:] CMD: scale:fa_rep  -200.712  0  0  0.02805
+protocols.relax.FastRelax: [2024-11-23  0:14:56:] CMD: min  -640.084  2.57386  2.57386  0.02805
+protocols.relax.FastRelax: [2024-11-23  0:14:56:] CMD: coord_cst_weight  -640.084  2.57386  2.57386  0.02805
+protocols.relax.FastRelax: [2024-11-23  0:14:56:] CMD: scale:fa_rep  -396.87  2.57386  2.57386  0.14575
+core.pack.task: [2024-11-23  0:14:56:] Packer task: initialize from command line() 
+core.pack.pack_rotamers: [2024-11-23  0:14:56:] built 2002 rotamers at 152 positions.
+core.pack.pack_rotamers: [2024-11-23  0:14:56:] Requesting all available threads for interaction graph computation.
+core.pack.interaction_graph.interaction_graph_factory: [2024-11-23  0:14:56:] Instantiating DensePDInteractionGraph
+core.pack.rotamer_set.RotamerSets: [2024-11-23  0:14:56:] Completed interaction graph pre-calculation in 1 available threads (1 had been requested).
+protocols.relax.FastRelax: [2024-11-23  0:14:57:] CMD: repack  -402.089  2.57386  2.57386  0.14575
+protocols.relax.FastRelax: [2024-11-23  0:14:57:] CMD: scale:fa_rep  -385.488  2.57386  2.57386  0.154
+protocols.relax.FastRelax: [2024-11-23  0:15:22:] CMD: min  -546.187  2.32773  2.32773  0.154
+protocols.relax.FastRelax: [2024-11-23  0:15:22:] CMD: coord_cst_weight  -546.187  2.32773  2.32773  0.154
+protocols.relax.FastRelax: [2024-11-23  0:15:22:] CMD: scale:fa_rep  -478.236  2.32773  2.32773  0.30745
+core.pack.task: [2024-11-23  0:15:22:] Packer task: initialize from command line() 
+core.pack.pack_rotamers: [2024-11-23  0:15:22:] built 1938 rotamers at 152 positions.
+core.pack.pack_rotamers: [2024-11-23  0:15:22:] Requesting all available threads for interaction graph computation.
+core.pack.interaction_graph.interaction_graph_factory: [2024-11-23  0:15:22:] Instantiating DensePDInteractionGraph
+core.pack.rotamer_set.RotamerSets: [2024-11-23  0:15:23:] Completed interaction graph pre-calculation in 1 available threads (1 had been requested).
+protocols.relax.FastRelax: [2024-11-23  0:15:23:] CMD: repack  -478.355  2.32773  2.32773  0.30745
+protocols.relax.FastRelax: [2024-11-23  0:15:23:] CMD: scale:fa_rep  -472.998  2.32773  2.32773  0.31955
+protocols.relax.FastRelax: [2024-11-23  0:15:43:] CMD: min  -495.651  2.18627  2.18627  0.31955
+protocols.relax.FastRelax: [2024-11-23  0:15:43:] CMD: coord_cst_weight  -495.651  2.18627  2.18627  0.31955
+protocols.relax.FastRelax: [2024-11-23  0:15:43:] CMD: scale:fa_rep  -441.6  2.18627  2.18627  0.55
+core.pack.task: [2024-11-23  0:15:43:] Packer task: initialize from command line() 
+core.pack.pack_rotamers: [2024-11-23  0:15:43:] built 1934 rotamers at 152 positions.
+core.pack.pack_rotamers: [2024-11-23  0:15:43:] Requesting all available threads for interaction graph computation.
+core.pack.interaction_graph.interaction_graph_factory: [2024-11-23  0:15:43:] Instantiating DensePDInteractionGraph
+core.pack.rotamer_set.RotamerSets: [2024-11-23  0:15:44:] Completed interaction graph pre-calculation in 1 available threads (1 had been requested).
+protocols.relax.FastRelax: [2024-11-23  0:15:44:] CMD: repack  -441.6  2.18627  2.18627  0.55
+protocols.relax.FastRelax: [2024-11-23  0:16: 2:] CMD: min  -454.143  2.07402  2.07402  0.55
+protocols.relax.FastRelax: [2024-11-23  0:16: 2:] MRP: 0  -454.143  -454.143  2.07402  2.07402  
+protocols.relax.FastRelax: [2024-11-23  0:16: 2:] CMD: accept_to_best  -454.143  2.07402  2.07402  0.55
+protocols.relax.FastRelax: [2024-11-23  0:16: 2:] CMD: endrepeat  -454.143  2.07402  2.07402  0.55
+protocols.relax.FastRelax: [2024-11-23  0:16: 2:] CMD: coord_cst_weight  -454.143  2.07402  2.07402  0.55
+protocols.relax.FastRelax: [2024-11-23  0:16: 2:] CMD: scale:fa_rep  -532.725  2.07402  2.07402  0.022
+core.pack.task: [2024-11-23  0:16: 2:] Packer task: initialize from command line() 
+core.pack.pack_rotamers: [2024-11-23  0:16: 2:] built 2076 rotamers at 152 positions.
+core.pack.pack_rotamers: [2024-11-23  0:16: 2:] Requesting all available threads for interaction graph computation.
+core.pack.interaction_graph.interaction_graph_factory: [2024-11-23  0:16: 2:] Instantiating DensePDInteractionGraph
+core.pack.rotamer_set.RotamerSets: [2024-11-23  0:16: 3:] Completed interaction graph pre-calculation in 1 available threads (1 had been requested).
+protocols.relax.FastRelax: [2024-11-23  0:16: 3:] CMD: repack  -541.785  2.07402  2.07402  0.022
+protocols.relax.FastRelax: [2024-11-23  0:16: 3:] CMD: scale:fa_rep  -539.868  2.07402  2.07402  0.02805
+protocols.relax.FastRelax: [2024-11-23  0:16:39:] CMD: min  -660.493  2.7752  2.7752  0.02805
+protocols.relax.FastRelax: [2024-11-23  0:16:39:] CMD: coord_cst_weight  -660.493  2.7752  2.7752  0.02805
+protocols.relax.FastRelax: [2024-11-23  0:16:39:] CMD: scale:fa_rep  -409.829  2.7752  2.7752  0.14575
+core.pack.task: [2024-11-23  0:16:39:] Packer task: initialize from command line() 
+core.pack.pack_rotamers: [2024-11-23  0:16:39:] built 1990 rotamers at 152 positions.
+core.pack.pack_rotamers: [2024-11-23  0:16:39:] Requesting all available threads for interaction graph computation.
+core.pack.interaction_graph.interaction_graph_factory: [2024-11-23  0:16:39:] Instantiating DensePDInteractionGraph
+core.pack.rotamer_set.RotamerSets: [2024-11-23  0:16:40:] Completed interaction graph pre-calculation in 1 available threads (1 had been requested).
+protocols.relax.FastRelax: [2024-11-23  0:16:40:] CMD: repack  -413.393  2.7752  2.7752  0.14575
+protocols.relax.FastRelax: [2024-11-23  0:16:40:] CMD: scale:fa_rep  -396.345  2.7752  2.7752  0.154
+protocols.relax.FastRelax: [2024-11-23  0:17: 2:] CMD: min  -555.458  2.48597  2.48597  0.154
+protocols.relax.FastRelax: [2024-11-23  0:17: 2:] CMD: coord_cst_weight  -555.458  2.48597  2.48597  0.154
+protocols.relax.FastRelax: [2024-11-23  0:17: 2:] CMD: scale:fa_rep  -485.984  2.48597  2.48597  0.30745
+core.pack.task: [2024-11-23  0:17: 2:] Packer task: initialize from command line() 
+core.pack.pack_rotamers: [2024-11-23  0:17: 2:] built 1960 rotamers at 152 positions.
+core.pack.pack_rotamers: [2024-11-23  0:17: 2:] Requesting all available threads for interaction graph computation.
+core.pack.interaction_graph.interaction_graph_factory: [2024-11-23  0:17: 2:] Instantiating DensePDInteractionGraph
+core.pack.rotamer_set.RotamerSets: [2024-11-23  0:17: 3:] Completed interaction graph pre-calculation in 1 available threads (1 had been requested).
+protocols.relax.FastRelax: [2024-11-23  0:17: 3:] CMD: repack  -485.984  2.48597  2.48597  0.30745
+protocols.relax.FastRelax: [2024-11-23  0:17: 3:] CMD: scale:fa_rep  -480.506  2.48597  2.48597  0.31955
+protocols.relax.FastRelax: [2024-11-23  0:17:19:] CMD: min  -502.874  2.28421  2.28421  0.31955
+protocols.relax.FastRelax: [2024-11-23  0:17:19:] CMD: coord_cst_weight  -502.874  2.28421  2.28421  0.31955
+protocols.relax.FastRelax: [2024-11-23  0:17:19:] CMD: scale:fa_rep  -447.958  2.28421  2.28421  0.55
+core.pack.task: [2024-11-23  0:17:19:] Packer task: initialize from command line() 
+core.pack.pack_rotamers: [2024-11-23  0:17:19:] built 1914 rotamers at 152 positions.
+core.pack.pack_rotamers: [2024-11-23  0:17:19:] Requesting all available threads for interaction graph computation.
+core.pack.interaction_graph.interaction_graph_factory: [2024-11-23  0:17:19:] Instantiating DensePDInteractionGraph
+core.pack.rotamer_set.RotamerSets: [2024-11-23  0:17:20:] Completed interaction graph pre-calculation in 1 available threads (1 had been requested).
+protocols.relax.FastRelax: [2024-11-23  0:17:20:] CMD: repack  -447.984  2.28421  2.28421  0.55
+protocols.relax.FastRelax: [2024-11-23  0:17:33:] CMD: min  -459.989  2.19064  2.19064  0.55
+protocols.relax.FastRelax: [2024-11-23  0:17:33:] MRP: 1  -459.989  -459.989  2.19064  2.19064  
+protocols.relax.FastRelax: [2024-11-23  0:17:33:] CMD: accept_to_best  -459.989  2.19064  2.19064  0.55
+protocols.relax.FastRelax: [2024-11-23  0:17:33:] CMD: endrepeat  -459.989  2.19064  2.19064  0.55
+protocols.relax.FastRelax: [2024-11-23  0:17:33:] CMD: coord_cst_weight  -459.989  2.19064  2.19064  0.55
+protocols.relax.FastRelax: [2024-11-23  0:17:33:] CMD: scale:fa_rep  -540.794  2.19064  2.19064  0.022
+core.pack.task: [2024-11-23  0:17:33:] Packer task: initialize from command line() 
+core.pack.pack_rotamers: [2024-11-23  0:17:33:] built 2097 rotamers at 152 positions.
+core.pack.pack_rotamers: [2024-11-23  0:17:33:] Requesting all available threads for interaction graph computation.
+core.pack.interaction_graph.interaction_graph_factory: [2024-11-23  0:17:33:] Instantiating DensePDInteractionGraph
+core.pack.rotamer_set.RotamerSets: [2024-11-23  0:17:33:] Completed interaction graph pre-calculation in 1 available threads (1 had been requested).
+protocols.relax.FastRelax: [2024-11-23  0:17:33:] CMD: repack  -550.258  2.19064  2.19064  0.022
+protocols.relax.FastRelax: [2024-11-23  0:17:33:] CMD: scale:fa_rep  -547.417  2.19064  2.19064  0.02805
+protocols.relax.FastRelax: [2024-11-23  0:18: 3:] CMD: min  -668.416  2.75198  2.75198  0.02805
+protocols.relax.FastRelax: [2024-11-23  0:18: 3:] CMD: coord_cst_weight  -668.416  2.75198  2.75198  0.02805
+protocols.relax.FastRelax: [2024-11-23  0:18: 3:] CMD: scale:fa_rep  -423.678  2.75198  2.75198  0.14575
+core.pack.task: [2024-11-23  0:18: 3:] Packer task: initialize from command line() 
+core.pack.pack_rotamers: [2024-11-23  0:18: 3:] built 2009 rotamers at 152 positions.
+core.pack.pack_rotamers: [2024-11-23  0:18: 3:] Requesting all available threads for interaction graph computation.
+core.pack.interaction_graph.interaction_graph_factory: [2024-11-23  0:18: 3:] Instantiating DensePDInteractionGraph
+core.pack.rotamer_set.RotamerSets: [2024-11-23  0:18: 4:] Completed interaction graph pre-calculation in 1 available threads (1 had been requested).
+protocols.relax.FastRelax: [2024-11-23  0:18: 4:] CMD: repack  -426.345  2.75198  2.75198  0.14575
+protocols.relax.FastRelax: [2024-11-23  0:18: 4:] CMD: scale:fa_rep  -409.512  2.75198  2.75198  0.154
+protocols.relax.FastRelax: [2024-11-23  0:18:23:] CMD: min  -560.891  2.49627  2.49627  0.154
+protocols.relax.FastRelax: [2024-11-23  0:18:23:] CMD: coord_cst_weight  -560.891  2.49627  2.49627  0.154
+protocols.relax.FastRelax: [2024-11-23  0:18:23:] CMD: scale:fa_rep  -490.471  2.49627  2.49627  0.30745
+core.pack.task: [2024-11-23  0:18:23:] Packer task: initialize from command line() 
+core.pack.pack_rotamers: [2024-11-23  0:18:23:] built 1974 rotamers at 152 positions.
+core.pack.pack_rotamers: [2024-11-23  0:18:23:] Requesting all available threads for interaction graph computation.
+core.pack.interaction_graph.interaction_graph_factory: [2024-11-23  0:18:23:] Instantiating DensePDInteractionGraph
+core.pack.rotamer_set.RotamerSets: [2024-11-23  0:18:23:] Completed interaction graph pre-calculation in 1 available threads (1 had been requested).
+protocols.relax.FastRelax: [2024-11-23  0:18:23:] CMD: repack  -490.471  2.49627  2.49627  0.30745
+protocols.relax.FastRelax: [2024-11-23  0:18:23:] CMD: scale:fa_rep  -484.918  2.49627  2.49627  0.31955
+protocols.relax.FastRelax: [2024-11-23  0:18:46:] CMD: min  -509.349  2.25465  2.25465  0.31955
+protocols.relax.FastRelax: [2024-11-23  0:18:46:] CMD: coord_cst_weight  -509.349  2.25465  2.25465  0.31955
+protocols.relax.FastRelax: [2024-11-23  0:18:46:] CMD: scale:fa_rep  -454.759  2.25465  2.25465  0.55
+core.pack.task: [2024-11-23  0:18:46:] Packer task: initialize from command line() 
+core.pack.pack_rotamers: [2024-11-23  0:18:46:] built 1905 rotamers at 152 positions.
+core.pack.pack_rotamers: [2024-11-23  0:18:46:] Requesting all available threads for interaction graph computation.
+core.pack.interaction_graph.interaction_graph_factory: [2024-11-23  0:18:46:] Instantiating DensePDInteractionGraph
+core.pack.rotamer_set.RotamerSets: [2024-11-23  0:18:46:] Completed interaction graph pre-calculation in 1 available threads (1 had been requested).
+protocols.relax.FastRelax: [2024-11-23  0:18:46:] CMD: repack  -454.759  2.25465  2.25465  0.55
+protocols.relax.FastRelax: [2024-11-23  0:18:55:] CMD: min  -465.895  2.21326  2.21326  0.55
+protocols.relax.FastRelax: [2024-11-23  0:18:55:] MRP: 2  -465.895  -465.895  2.21326  2.21326  
+protocols.relax.FastRelax: [2024-11-23  0:18:55:] CMD: accept_to_best  -465.895  2.21326  2.21326  0.55
+protocols.relax.FastRelax: [2024-11-23  0:18:55:] CMD: endrepeat  -465.895  2.21326  2.21326  0.55
+protocols.relax.FastRelax: [2024-11-23  0:18:55:] CMD: coord_cst_weight  -465.895  2.21326  2.21326  0.55
+protocols.relax.FastRelax: [2024-11-23  0:18:55:] CMD: scale:fa_rep  -547.528  2.21326  2.21326  0.022
+core.pack.task: [2024-11-23  0:18:55:] Packer task: initialize from command line() 
+core.pack.pack_rotamers: [2024-11-23  0:18:55:] built 2075 rotamers at 152 positions.
+core.pack.pack_rotamers: [2024-11-23  0:18:55:] Requesting all available threads for interaction graph computation.
+core.pack.interaction_graph.interaction_graph_factory: [2024-11-23  0:18:55:] Instantiating DensePDInteractionGraph
+core.pack.rotamer_set.RotamerSets: [2024-11-23  0:18:55:] Completed interaction graph pre-calculation in 1 available threads (1 had been requested).
+protocols.relax.FastRelax: [2024-11-23  0:18:56:] CMD: repack  -555.725  2.21326  2.21326  0.022
+protocols.relax.FastRelax: [2024-11-23  0:18:56:] CMD: scale:fa_rep  -553.839  2.21326  2.21326  0.02805
+core.optimization.Minimizer: [2024-11-23  0:20:17:] [ WARNING ] LBFGS MAX CYCLES 2000 EXCEEDED, BUT FUNC NOT CONVERGED!
+protocols.relax.FastRelax: [2024-11-23  0:20:17:] CMD: min  -670.506  2.95731  2.95731  0.02805
+protocols.relax.FastRelax: [2024-11-23  0:20:17:] CMD: coord_cst_weight  -670.506  2.95731  2.95731  0.02805
+protocols.relax.FastRelax: [2024-11-23  0:20:17:] CMD: scale:fa_rep  -421.346  2.95731  2.95731  0.14575
+core.pack.task: [2024-11-23  0:20:17:] Packer task: initialize from command line() 
+core.pack.pack_rotamers: [2024-11-23  0:20:17:] built 1992 rotamers at 152 positions.
+core.pack.pack_rotamers: [2024-11-23  0:20:17:] Requesting all available threads for interaction graph computation.
+core.pack.interaction_graph.interaction_graph_factory: [2024-11-23  0:20:17:] Instantiating DensePDInteractionGraph
+core.pack.rotamer_set.RotamerSets: [2024-11-23  0:20:18:] Completed interaction graph pre-calculation in 1 available threads (1 had been requested).
+protocols.relax.FastRelax: [2024-11-23  0:20:18:] CMD: repack  -424.724  2.95731  2.95731  0.14575
+protocols.relax.FastRelax: [2024-11-23  0:20:18:] CMD: scale:fa_rep  -407.69  2.95731  2.95731  0.154
+protocols.relax.FastRelax: [2024-11-23  0:20:41:] CMD: min  -561.521  2.56907  2.56907  0.154
+protocols.relax.FastRelax: [2024-11-23  0:20:41:] CMD: coord_cst_weight  -561.521  2.56907  2.56907  0.154
+protocols.relax.FastRelax: [2024-11-23  0:20:41:] CMD: scale:fa_rep  -490.638  2.56907  2.56907  0.30745
+core.pack.task: [2024-11-23  0:20:41:] Packer task: initialize from command line() 
+core.pack.pack_rotamers: [2024-11-23  0:20:42:] built 1962 rotamers at 152 positions.
+core.pack.pack_rotamers: [2024-11-23  0:20:42:] Requesting all available threads for interaction graph computation.
+core.pack.interaction_graph.interaction_graph_factory: [2024-11-23  0:20:42:] Instantiating DensePDInteractionGraph
+core.pack.rotamer_set.RotamerSets: [2024-11-23  0:20:42:] Completed interaction graph pre-calculation in 1 available threads (1 had been requested).
+protocols.relax.FastRelax: [2024-11-23  0:20:42:] CMD: repack  -490.638  2.56907  2.56907  0.30745
+protocols.relax.FastRelax: [2024-11-23  0:20:42:] CMD: scale:fa_rep  -485.049  2.56907  2.56907  0.31955
+protocols.relax.FastRelax: [2024-11-23  0:21: 5:] CMD: min  -508.266  2.27372  2.27372  0.31955
+protocols.relax.FastRelax: [2024-11-23  0:21: 5:] CMD: coord_cst_weight  -508.266  2.27372  2.27372  0.31955
+protocols.relax.FastRelax: [2024-11-23  0:21: 5:] CMD: scale:fa_rep  -452.322  2.27372  2.27372  0.55
+core.pack.task: [2024-11-23  0:21: 5:] Packer task: initialize from command line() 
+core.pack.pack_rotamers: [2024-11-23  0:21: 5:] built 1905 rotamers at 152 positions.
+core.pack.pack_rotamers: [2024-11-23  0:21: 5:] Requesting all available threads for interaction graph computation.
+core.pack.interaction_graph.interaction_graph_factory: [2024-11-23  0:21: 5:] Instantiating DensePDInteractionGraph
+core.pack.rotamer_set.RotamerSets: [2024-11-23  0:21: 5:] Completed interaction graph pre-calculation in 1 available threads (1 had been requested).
+protocols.relax.FastRelax: [2024-11-23  0:21: 5:] CMD: repack  -452.322  2.27372  2.27372  0.55
+protocols.relax.FastRelax: [2024-11-23  0:21:25:] CMD: min  -466.355  2.14954  2.14954  0.55
+protocols.relax.FastRelax: [2024-11-23  0:21:25:] MRP: 3  -466.355  -466.355  2.14954  2.14954  
+protocols.relax.FastRelax: [2024-11-23  0:21:25:] CMD: accept_to_best  -466.355  2.14954  2.14954  0.55
+protocols.relax.FastRelax: [2024-11-23  0:21:25:] CMD: endrepeat  -466.355  2.14954  2.14954  0.55
+protocols::checkpoint: [2024-11-23  0:21:25:] Deleting checkpoints of FastRelax
+protocols.rosetta_scripts.ParsedProtocol: [2024-11-23  0:21:25:] setting status to success
+protocols.jd2.JobDistributor: [2024-11-23  0:21:25:] relax_wt_monomer_0001 reported success in 464 seconds
+protocols.jd2.JobDistributor: [2024-11-23  0:21:25:] no more batches to process... 
+protocols.jd2.JobDistributor: [2024-11-23  0:21:25:] 1 jobs considered, 1 jobs attempted in 464 seconds
+protocols.jd2.JobDistributor: [2024-11-23  0:21:25:] [ WARNING ] The following options have been set, but have not yet been used:
+	-out:save_times 
+	-run:checkpoint 
+
+basic.citation_manager.CitationManager: [2024-11-23  0:21:25:] 
+The following Rosetta modules were used during this run of Rosetta, and should be cited:
+
+rosetta_scripts Application's citation(s):
+Fleishman SJ, Leaver-Fay A, Corn JE, Strauch E-M, Khare SD, Koga N, Ashworth J, Murphy P, Richter F, Lemmon G, Meiler J, and Baker D.  (2011).  RosettaScripts: A Scripting Language Interface to the Rosetta Macromolecular Modeling Suite.  PLoS ONE 6(6):e20161.  doi: 10.1371/journal.pone.0020161.
+
+FastRelax Mover's citation(s):
+*Tyka MD, *Keedy DA, André I, Dimaio F, Song Y, Richardson DC, Richardson JS, and Baker D.  (2011).  Alternate states of proteins revealed by detailed energy landscape mapping.  J Mol Biol 405(2):607-18.  doi: 10.1016/j.jmb.2010.11.008.  (*Co-primary authors.)
+
+Khatib F, Cooper S, Tyka MD, Xu K, Makedon I, Popovic Z, Baker D, and Players F.  (2011).  Algorithm discovery by protein folding game players.  Proc Natl Acad Sci USA 108(47):18949-53.  doi: 10.1073/pnas.1115898108.
+
+Maguire JB, Haddox HK, Strickland D, Halabiya SF, Coventry B, Griffin JR, Pulavarti SVSRK, Cummins M, Thieker DF, Klavins E, Szyperski T, DiMaio F, Baker D, and Kuhlman B.  (2021).  Perturbing the energy landscape for improved packing during computational protein design.  Proteins 89(4):436-449.  doi: 10.1002/prot.26030.
+
+
+The following UNPUBLISHED Rosetta modules were used during this run of Rosetta.  Their authors should be included in the author list when this work is published:
+
+RosettaThreadManager Singleton's author(s):
+Vikram K. Mulligan, Systems Biology, Center for Computational Biology, Flatiron Institute [vmulligan@flatironinstitute.org]
+
+

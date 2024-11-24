@@ -1,0 +1,45 @@
+##############################################################################################################
+#
+# Rosetta crash log. Please submit the contents of this file to http://crash.rosettacommons.org/
+# or use the script Rosetta/main/source/scripts/python/public/report_crashes.py
+#
+
+[START_CRASH_REPORT]
+[ROSETTA_VERSION]: 2024.42+HEAD.3366cf78a3
+[COMMIT_DATE]: 2024-10-11T08:24:04
+[APPLICATION]: minirosetta
+[MODE]: Release
+[EXTRAS]: cxx11thread serialization 
+[OS]: GNU/Linux
+[COMPILER]: Clang version "6.0.0 (tags/RELEASE_600/final)"
+[STDLIB]: libstdc++ version 20191114
+[START_OPTIONS]
+
+
+[END_OPTIONS]
+
+[START_BACKTRACE]: RAW_LIBC
+/home/james/micromamba/envs/ddg_rosetta/bin/libutility.so(backtrace_string[abi:cxx11](int)+0x3f) [0x7a314b6100af]
+/home/james/micromamba/envs/ddg_rosetta/bin/libutility.so(utility::excn::Exception::Exception(char const*, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)+0x138) [0x7a314b6393e8]
+/home/james/micromamba/envs/ddg_rosetta/bin/libutility.so(utility::UtilityExitException::UtilityExitException(char const*, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)+0xbc) [0x7a314b613abc]
+/home/james/micromamba/envs/ddg_rosetta/bin/libutility.so(utility::exit(char const*, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int)+0x31) [0x7a314b613991]
+/home/james/micromamba/envs/ddg_rosetta/bin/libprotocols_b.6.so(protocols::abinitio::AbrelaxApplication::setup()+0xd9e) [0x7a3159ab097e]
+/home/james/micromamba/envs/ddg_rosetta/bin/libprotocols_b.6.so(protocols::abinitio::AbrelaxApplication::run()+0x16) [0x7a3159ae6f96]
+minirosetta() [0x40509f]
+/usr/lib/libc.so.6(+0x25e08) [0x7a314ce34e08]
+/usr/lib/libc.so.6(__libc_start_main+0x8c) [0x7a314ce34ecc]
+minirosetta() [0x40436a]
+
+[END_BACKTRACE]
+
+[FILE]: src/protocols/abinitio/AbrelaxApplication.cc
+[LINE]: 378
+[START_MESSAGE]
+[ ERROR ] UtilityExitException
+ERROR: Error: can't read sequence! Use -in::file::fasta sequence.fasta or -in::file::native native.pdb!
+
+
+
+[END_MESSAGE]
+[END_CRASH_REPORT]
+
