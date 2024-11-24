@@ -30,7 +30,7 @@ Please refer to the user guide .pdf for how to use RosettaDDGPrediction.
 
 Examples of how to run each step:
 
-1. Run Rosetta
+### 1. Run Rosetta
 
 ```bash
 # ensure that pdb file is in pdb_input dir
@@ -47,7 +47,7 @@ rosetta_ddg_run \
 
 This outputs two new dirs, `relax` and `cartesian`, which is populated with info required by `rosetta_ddg_aggregate`.
 
-2. Aggregate the rosetta data
+### 2. Aggregate the rosetta data
 
 ```bash
 rosetta_ddg_aggregate \
@@ -59,7 +59,7 @@ rosetta_ddg_aggregate \
 
 The aggreagation step creates two .csv files required for the final plotting step
 
-3. Plot the data
+### 3. Plot the data
 
 ```bash
 rosetta_ddg_plot \
