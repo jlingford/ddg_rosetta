@@ -13,13 +13,13 @@ Forked from <https://github.com/ELELAB/RosettaDDGPrediction>
 git clone https://github.com/jlingford/ddg_rosetta.git
 cd ddg_rosetta
 
-# make python modules executable
-python3 setup.py install
-
 # install all dependencies with conda or mamba (mamba is faster)
 # NOTE: rosetta dependency takes a long time to install
 mamba create -n ddg_rosetta -f requirements.yaml
 mamba activate ddg_rosetta
+
+# make python modules executable
+python3 setup.py install
 ```
 
 Upon successful installation, you should have three executable (`rosetta_ddg_run`, `rosetta_ddg_aggregate` and `rosetta_ddg_plot`) available to perform the various steps of data collection and analysis.
