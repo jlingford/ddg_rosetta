@@ -26,24 +26,6 @@ CONFIG_RUN=RosettaDDGPrediction/config_run
 CONFIG_SET=RosettaDDGPrediction/config_settings
 CONFIG_AGG=RosettaDDGPrediction/config_aggregate
 CONFIG_PLT=RosettaDDGPrediction/config_plot
-MUT_DIR=muts
-
-# generate help output
-rosetta_ddg_run --help >help.txt
-
-# run rosetta
-rosetta_ddg_run \
-    --pdbfile pdb_input/wt_monomer.pdb \
-    --listfile $MUT_DIR/key_muts.txt \
-    --configfile-run $CONFIG_RUN/cartesian2020_ref2015.yaml \
-    --configfile-settings $CONFIG_SET/rosettampi.yaml \
-    --rosettapath $ROSETTA_DIR \
-    -n 48
-
-echo "done rosetta ddg run!"
-
-rosetta_ddg_check_run \
-    --configfile-run $CONFIG_RUN/cartesian2020_ref2015.yaml
 
 rosetta_ddg_aggregate \
     -ca $CONFIG_AGG/aggregate.yaml \
