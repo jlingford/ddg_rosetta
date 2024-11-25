@@ -5,9 +5,8 @@
 #SBATCH --qos=genomics
 #SBATCH --time=4:00:00
 #SBATCH --nodes=1
-#SBATCH --ntasks-per-core=1
-#SBATCH --ntasks-per-node=48
-#SBATCH --cpus-per-task=16
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=128
 #SBATCH --mem=40000
 #SBATCH --mail-user=james.lingford@monash.edu
 #SBATCH --mail-type=BEGIN,END,FAIL,TIME_OUT
