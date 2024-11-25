@@ -6,8 +6,8 @@
 #SBATCH --time=4:00:00
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
-#SBATCH --cpus-per-task=128
-#SBATCH --mem=40000
+#SBATCH --cpus-per-task=48
+#SBATCH --mem=80000
 #SBATCH --mail-user=james.lingford@monash.edu
 #SBATCH --mail-type=BEGIN,END,FAIL,TIME_OUT
 #SBATCH --chdir="/home/jamesl/rp24_scratch2/jamesl2/ddg_rosetta"
