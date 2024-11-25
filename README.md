@@ -15,7 +15,7 @@ cd ddg_rosetta
 
 # install all dependencies with conda or mamba (mamba is faster)
 # NOTE: rosetta dependency takes a long time to install
-mamba create -n ddg_rosetta -f requirements.yaml
+mamba env create -f requirements.yaml
 mamba activate ddg_rosetta
 
 # make python modules executable
