@@ -38,4 +38,5 @@ rosetta_ddg_run \
     --saturation \
     --reslistfile $MUT_DIR/reslist.txt
 
-rosetta_ddg_check_run
+rosetta_ddg_check_run \
+    --configfile-run $CONFIG_RUN/cartesian2020_ref2015.yaml
