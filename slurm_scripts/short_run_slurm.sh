@@ -16,7 +16,7 @@
 
 # set env
 module purge
-module load openmpi/1.10.3-gcc4-mlx
+# module load openmpi/1.10.3-gcc4-mlx
 module load miniforge3
 conda activate /fs04/scratch2/rp24/jamesl2/ddg_rosetta/rp24_scratch2/jamesl2/miniconda/conda/envs/ddg_rosetta
 
@@ -34,7 +34,7 @@ rosetta_ddg_run \
     --pdbfile pdb_input/wt_monomer.pdb \
     --listfile $MUT_DIR/key_muts.txt \
     --configfile-run $CONFIG_RUN/cartesian2020_ref2015.yaml \
-    --configfile-settings $CONFIG_SET/mpirun.yaml \
+    --configfile-settings $CONFIG_SET/rosettampi.yaml \
     --rosettapath $ROSETTA_DIR \
     -n 48
 
