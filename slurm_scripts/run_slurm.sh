@@ -21,9 +21,9 @@ conda activate /fs04/scratch2/rp24/jamesl2/ddg_rosetta/rp24_scratch2/jamesl2/min
 
 # set variables
 ROSETTA_DIR=/fs04/scratch2/rp24/jamesl2/ddg_rosetta/rp24_scratch2/jamesl2/miniconda/conda/envs/ddg_rosetta
-CONFIG_RUN=../RosettaDDGPrediction/config_run
-CONFIG_SET=../RosettaDDGPrediction/config_settings
-MUT_DIR=../muts
+CONFIG_RUN=RosettaDDGPrediction/config_run
+CONFIG_SET=RosettaDDGPrediction/config_settings
+MUT_DIR=muts
 
 # generate help output
 rosetta_ddg_run --help >help.txt
