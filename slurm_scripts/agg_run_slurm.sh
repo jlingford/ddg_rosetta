@@ -32,8 +32,7 @@ rosetta_ddg_aggregate \
     -cr $CONFIG_RUN/cartddg_ref2015.yaml \
     -cs $CONFIG_SET/rosettampi.yaml \
     -mf cartesian/mutinfo.txt \
-    -od agg_data \
-    -n 48
+    -od agg_data
 
 echo "done rosetta ddg aggregate!"
 
