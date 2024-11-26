@@ -27,6 +27,9 @@ Upon successful installation, you should have three executable (`rosetta_ddg_run
 ## Usage
 
 Please refer to the user guide .pdf for how to use RosettaDDGPrediction.
+Modules can also be called with a `--help` flag.
+
+Example code and scripts need to be changed per use case and won't work as is.
 
 Examples of how to run each step:
 
