@@ -395,7 +395,7 @@ def set_axis(ax, axis, config, ticks=None, ticklabels=None):
         ax.set_xticklabels(labels=ticklabels, **ticklabels_config)
 
         # If tick positions were provided
-        if ticks != []:
+        if len(ticks) > 0:
             # Set the axis boundaries
             ax.spines["bottom"].set_bounds(ticks[0], ticks[-1])
 
