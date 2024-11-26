@@ -17,7 +17,6 @@ RosettaDDGPrediction.egg-info/PKG-INFO
 RosettaDDGPrediction.egg-info/SOURCES.txt
 RosettaDDGPrediction.egg-info/dependency_links.txt
 RosettaDDGPrediction.egg-info/entry_points.txt
-RosettaDDGPrediction.egg-info/requires.txt
 RosettaDDGPrediction.egg-info/top_level.txt
 RosettaDDGPrediction/RosettaScripts/Cartddg2020_relax.xml
 RosettaDDGPrediction/RosettaScripts/Flex_ddG.xml

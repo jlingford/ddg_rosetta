@@ -9,6 +9,7 @@ mpi:
   # MPI executable
   mpiexec: !!null # MPI arguments
 
+
   mpiargs: !!seq []
 
 localcluster:
@@ -24,6 +25,6 @@ localcluster:
 
 rosetta:
   # usual Rosetta path for executables
-  execpath: "/home/james/micromamba/envs/ddg_rosetta/bin"
+  execpath: "bin"
   # suffix of the Rosetta executables
-  execsuffix: .mpi.linuxgccrelease
+  execsuffix: .cxx11threadserialization.linuxclangrelease
