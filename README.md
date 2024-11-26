@@ -32,40 +32,87 @@ Examples of how to run each step:
 
 ### 1. Run Rosetta
 
+Tested on a HPC with SLURM. Run `sbatch ./scripts/long_run_slurm.sh`
+
 ```bash
+#!/bin/bash
+#SBATCH --nodes=1
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=48
+#SBATCH <slurm stuff goes here>
+
+## SETUP
 # ensure that pdb file is in pdb_input dir
 # ensure mutations are specified in muts.txt
 # the rosetta is installed under the conda or mamba dir for ddg_rosetta
 
+# set env
+module purge
+module load miniforge3 #assuming conda is a module on your HPC
+conda activate ddg_rosetta
+
+# set variables
+ROSETTA_DIR=/path/to/your/miniconda/conda/envs/ddg_rosetta #change for your system
+CONFIG_RUN=RosettaDDGPrediction/config_run
+CONFIG_SET=RosettaDDGPrediction/config_settings
+CONFIG_AGG=RosettaDDGPrediction/config_aggregate
+CONFIG_PLT=RosettaDDGPrediction/config_plot
+MUT_DIR=muts
+
+# run rosetta
 rosetta_ddg_run \
-    -p pdb_input/wt_monomer.pdb \
-    -l muts/muts.txt \
-    -cr ./config/config_run/cartddg2020_ref2015.yaml \
-    -cs ./config/config_settings/rosettampi.yaml \
-    -r /home/$USER/micromamba/envs/ddg_rosetta
+    --pdbfile pdb_input/wt_monomer.pdb \
+    --listfile $MUT_DIR/key_muts.txt \
+    --configfile-run $CONFIG_RUN/cartesian2020_ref2015.yaml \
+    --configfile-settings $CONFIG_SET/rosettampi.yaml \
+    --rosettapath $ROSETTA_DIR \
+    -n 48 #starts 48 processes in parallel
+
+echo "done rosetta ddg run!"
+
+rosetta_ddg_check_run \
+    --configfile-run $CONFIG_RUN/cartesian2020_ref2015.yaml
+
+echo "done rosetta check"
 ```
 
 This outputs two new dirs, `relax` and `cartesian`, which is populated with info required by `rosetta_ddg_aggregate`.
 
+Check the `ROSETTA_CRASH.log` to see if there were any issues.
+If the run fails, the next step won't output a full .csv of all mutations.
+
 ### 2. Aggregate the rosetta data
 
+Easiest to include this in the same SLURM script from above.
+
 ```bash
+
 rosetta_ddg_aggregate \
-    -ca ./config/config_aggregate/aggregate.yaml \
-    -cr ./config/config_run/cartddg_ref2015.yaml \
-    -cs ./config/config_settings/nompi.yaml \
-    -mf cartesian/mutinfo.txt
+    -ca $CONFIG_AGG/aggregate.yaml \
+    -cr $CONFIG_RUN/cartddg_ref2015.yaml \
+    -cs $CONFIG_SET/rosettampi.yaml \
+    -mf cartesian/mutinfo.txt \
+    -od agg_data \
+    -n 48
 ```
 
-The aggreagation step creates two .csv files required for the final plotting step
+The aggregation step creates two .csv files required for the final plotting step:
+
+1. `ddg_mutations_aggregate.csv`
+2. `ddg_mutations_structures.csv`
+
+"Structures" contains all the Rosetta runs, while "aggregate" is the average of the data in "structures".
+Each is specific to what sort of plot you want to generate with `rosetta_ddg_plot`.
 
 ### 3. Plot the data
+
+Easiest to run locally after copying all the outputs to your local machine.
 
 ```bash
 rosetta_ddg_plot \
     -i ddg_mutations_structures.csv \
-    -o test3 \
-    -cp ./config/config_plot/total_heatmap.yaml
+    -o figure \
+    -cp ./RosettaDDGPrediction/config_plot/total_heatmap.yaml
 ```
 
 ## Citation
