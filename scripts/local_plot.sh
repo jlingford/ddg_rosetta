@@ -3,7 +3,7 @@
 CONFIG_PLT=RosettaDDGPrediction/config_plot
 
 rosetta_ddg_plot \
-    -i data_keymuts1/agg_data/G34R_aggregate.csv \
+    -i ddg_mutations_aggregate.csv \
     -o key_muts \
     -cp $CONFIG_PLT/contributions_barplot.yaml
 
