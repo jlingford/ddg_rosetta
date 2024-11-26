@@ -4,18 +4,15 @@
 # y positive semiaxis while negative contributions are stacked
 # upon the y negative semiaxis.
 
-
 # version of the configuration file
 version: 1
 
-
 #------------------------ OUTPUT FILE OPTIONS ------------------------#
-
 
 # output file settings (passed to 'matplotlib.pyplot.savefig')
 output:
   # DPI (the higher the number, the higher the resolution)
-  dpi: 900
+  dpi: 300
   # whether to have a transparent or opaque background
   transparent: True
   # format of the output file
@@ -23,21 +20,18 @@ output:
   # bbox in inches. If 'tight', use tight layout for the figure
   bbox_inches: "tight"
 
-
 #--------------------------- BARPLOT OPTIONS -------------------------#
-
 
 # plot settings
 plot:
-  
   # plot type
   type: "contributions_barplot"
-  
+
   # plot options
   options:
     # options for the bar plot
     barplot:
-      # bars settings (passed to 'pandas.DataFrame.plot')   
+      # bars settings (passed to 'pandas.DataFrame.plot')
       bars:
         stacked: True
 
@@ -56,22 +50,22 @@ plot:
           # font properties
           fontproperties:
             # name of/path to the font
-            fname: !!null
-            # size of the font
+            fname: !!null # size of the font
+
             size: 5
 
     # options regaring the horizontal line that will be
     # plotted at y value 0.0 (null energy contribution)
-    # (passed to 'matplotlib.pyplot.axhline') 
+    # (passed to 'matplotlib.pyplot.axhline')
     axhline:
       # line color
       color: "black"
       # line style
       linestyle: "--"
       # line width
-      linewidth: 1      
+      linewidth: 1
 
-    # x-axis settings  
+    # x-axis settings
     xaxis:
       # label settings (passed to 'matplotlib.axes.Axes.set_xlabel')
       label:
@@ -80,28 +74,28 @@ plot:
         # font properties
         fontproperties:
           # name of/path to the font
-          fname: !!null
-          # font size
+          fname: !!null # font size
+
           size: 12
-      # tick labels settings (passed to 
-      # 'matplotlib.axes.Axes.set_xticklabels')  
+      # tick labels settings (passed to
+      # 'matplotlib.axes.Axes.set_xticklabels')
       ticklabels:
         # tick label rotation
         rotation: 90
         # tick label font properties
         fontproperties:
           # name of/path to the font
-          fname: !!null
-          # font size
+          fname: !!null # font size
+
           size: 8
-      
+
     # y-axis settings
     yaxis:
       # label settings (passed to 'matplotlib.axes.Axes.set_ylabel')
       label:
         # text of the label
         ylabel: "ΔΔG scores (kcal/mol)"
-      # tick labels settings 
+      # tick labels settings
       # (passed to 'matplotlib.axes.Axes.set_yticklabels')
       ticklabels:
         # tick label rotation
@@ -109,8 +103,8 @@ plot:
         # tick label font properties
         fontproperties:
           # name of/path to the font
-          fname: !!null
-          # font size
+          fname: !!null # font size
+
           size: 8
       # interval of values to be represented on the y-axis
       interval:
@@ -134,6 +128,6 @@ plot:
       # font properties of the legend
       prop:
         # name of/path to the font
-        fname: !!null       
-        # font size
+        fname: !!null # font size
+
         size: 10
