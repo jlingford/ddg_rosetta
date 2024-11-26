@@ -45,6 +45,7 @@ Tested on a HPC with SLURM. Run `sbatch ./scripts/long_run_slurm.sh`
 # ensure that pdb file is in pdb_input dir
 # ensure mutations are specified in muts.txt
 # the rosetta is installed under the conda or mamba dir for ddg_rosetta
+# check which of the .yaml config files you want to specify for running rosetta
 
 # set env
 module purge
