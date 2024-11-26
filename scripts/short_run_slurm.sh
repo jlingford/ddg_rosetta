@@ -47,6 +47,8 @@ echo "done rosetta ddg run!"
 rosetta_ddg_check_run \
     --configfile-run $CONFIG_RUN/cartesian2020_ref2015.yaml
 
+echo "done rosetta check"
+
 rosetta_ddg_aggregate \
     -ca $CONFIG_AGG/aggregate.yaml \
     -cr $CONFIG_RUN/cartddg_ref2015.yaml \
