@@ -111,6 +111,7 @@ Each is specific to what sort of plot you want to generate with `rosetta_ddg_plo
 ### 3. Plot the data
 
 Easiest to run locally after copying all the outputs to your local machine.
+The authors provide a module to generate plots:
 
 ```bash
 rosetta_ddg_plot \
@@ -118,6 +119,14 @@ rosetta_ddg_plot \
     -o figure \
     -cp ./RosettaDDGPrediction/config_plot/total_heatmap.yaml
 ```
+
+Alternatively, run custom python scripts to generate different plots.
+
+```bash
+python3 ./scripts/plots/barplot.py
+```
+
+![barplot](./ddg_barplot.png)
 
 ## Citation
 
