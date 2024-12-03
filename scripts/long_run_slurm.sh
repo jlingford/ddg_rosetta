@@ -36,7 +36,25 @@ rosetta_ddg_run \
     --configfile-settings $CONFIG_SET/rosettampi.yaml \
     --rosettapath $ROSETTA_DIR \
     --saturation \
-    --reslistfile $MUT_DIR/reslist.txt
+    --reslistfile $MUT_DIR/reslist.txt \
+    -n 48
 
 rosetta_ddg_check_run \
     --configfile-run $CONFIG_RUN/cartesian2020_ref2015.yaml
+
+echo "done rosetta check"
+echo "aggregating data..."
+
+rosetta_ddg_aggregate \
+    -ca $CONFIG_AGG/aggregate.yaml \
+    -cr $CONFIG_RUN/cartddg_ref2015.yaml \
+    -cs $CONFIG_SET/rosettampi.yaml \
+    -mf cartesian/mutinfo.txt \
+    -od agg_data \
+    -n 48
+
+echo "running custom aggregation step"
+
+../scripts/summarise_agg_ddg_data.sh
+
+echo "done rosetta ddg aggregate!"
