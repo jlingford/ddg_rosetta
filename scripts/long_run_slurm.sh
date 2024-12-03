@@ -1,7 +1,7 @@
 #!/bin/bash
 #SBATCH --job-name="RosettaDDG"
 #SBATCH --account=rp24
-#SBATCH --partition=genomicsbq
+#SBATCH --partition=genomicsb
 #SBATCH --qos=genomicsbq
 #SBATCH --time=24:00:00
 #SBATCH --nodes=1
