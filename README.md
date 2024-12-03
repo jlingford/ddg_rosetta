@@ -20,6 +20,9 @@ mamba activate ddg_rosetta
 
 # make python modules executable
 python3 setup.py install
+
+# make one of the bash scripts executable
+chmod +x ./scripts/summarise_agg_ddg_data.sh
 ```
 
 Upon successful installation, you should have three executable (`rosetta_ddg_run`, `rosetta_ddg_aggregate` and `rosetta_ddg_plot`) available to perform the various steps of data collection and analysis.
@@ -98,15 +101,21 @@ rosetta_ddg_aggregate \
     -mf cartesian/mutinfo.txt \
     -od agg_data \
     -n 48
+
+./scripts/summarise_agg_ddg_data.sh
 ```
 
-The aggregation step creates two .csv files required for the final plotting step:
+The `rosetta_ddg_aggregate` module creates two .csv files required for `rosetta_ddg_plot`:
 
 1. `ddg_mutations_aggregate.csv`
 2. `ddg_mutations_structures.csv`
 
 "Structures" contains all the Rosetta runs, while "aggregate" is the average of the data in "structures".
 Each is specific to what sort of plot you want to generate with `rosetta_ddg_plot`.
+
+There is also the script `summarise_agg_ddg_data.sh`, which creates one file for my custom plotting script:
+
+1. `rosetta_ddg_scores.csv`
 
 ### 3. Plot the data
 
@@ -120,7 +129,7 @@ rosetta_ddg_plot \
     -cp ./RosettaDDGPrediction/config_plot/total_heatmap.yaml
 ```
 
-Alternatively, run custom python scripts to generate different plots.
+Alternatively, run custom python scripts on the `rosetta_ddg_scores.csv` file to generate different plots.
 
 ```bash
 python3 ./scripts/plots/barplot.py

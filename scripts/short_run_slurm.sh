@@ -57,6 +57,10 @@ rosetta_ddg_aggregate \
     -od agg_data \
     -n 48
 
+echo "running custom aggregation step"
+
+../scripts/summarise_agg_ddg_data.sh
+
 echo "done rosetta ddg aggregate!"
 
 rosetta_ddg_plot \
