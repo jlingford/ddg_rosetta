@@ -1,9 +1,9 @@
 #!/bin/bash
-#SBATCH --job-name="RosettaDDG"
+#SBATCH --job-name="RosettaDDG_saturation"
 #SBATCH --account=rp24
 #SBATCH --partition=genomicsb
 #SBATCH --qos=genomicsbq
-#SBATCH --time=24:00:00
+#SBATCH --time=04:00:00
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=128
@@ -23,6 +23,7 @@ conda activate /fs04/scratch2/rp24/jamesl2/ddg_rosetta/rp24_scratch2/jamesl2/min
 ROSETTA_DIR=/fs04/scratch2/rp24/jamesl2/ddg_rosetta/rp24_scratch2/jamesl2/miniconda/conda/envs/ddg_rosetta
 CONFIG_RUN=RosettaDDGPrediction/config_run
 CONFIG_SET=RosettaDDGPrediction/config_settings
+CONFIG_AGG=RosettaDDGPrediction/config_aggregate
 MUT_DIR=muts
 
 # generate help output
@@ -32,11 +33,11 @@ rosetta_ddg_run --help >help.txt
 rosetta_ddg_run \
     --pdbfile pdb_input/wt_monomer.pdb \
     --listfile $MUT_DIR/saturation_core_muts.txt \
+    --reslistfile $MUT_DIR/reslist.txt \
+    --saturation \
     --configfile-run $CONFIG_RUN/cartesian2020_ref2015.yaml \
     --configfile-settings $CONFIG_SET/rosettampi.yaml \
     --rosettapath $ROSETTA_DIR \
-    --saturation \
-    --reslistfile $MUT_DIR/reslist.txt \
     -n 128
 
 rosetta_ddg_check_run \
