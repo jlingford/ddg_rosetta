@@ -2,3 +2,6 @@
 .DS_Store
 .DS_Store?
 backup_data
+backup*
+*.svg
+*.pdf
