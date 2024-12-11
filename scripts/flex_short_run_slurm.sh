@@ -53,8 +53,8 @@ rosetta_ddg_aggregate \
     -ca $CONFIG_AGG/aggregate.yaml \
     -cr $CONFIG_RUN/flexddg_ref2015.yaml \
     -cs $CONFIG_SET/rosettampi.yaml \
-    -mf cartesian/mutinfo.txt \
-    -od agg_data \
+    -mf flexddg/mutinfo.txt \
+    -od flexddg_aggdata \
     -n 48
 
 echo "running custom aggregation step"
