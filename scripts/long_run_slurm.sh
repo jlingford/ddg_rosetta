@@ -3,11 +3,11 @@
 #SBATCH --account=rp24
 #SBATCH --partition=genomicsb
 #SBATCH --qos=genomicsbq
-#SBATCH --time=04:00:00
+#SBATCH --time=10:00:00
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
-#SBATCH --cpus-per-task=128
-#SBATCH --mem=1995000
+#SBATCH --cpus-per-task=48
+#SBATCH --mem=200000
 #SBATCH --mail-user=james.lingford@monash.edu
 #SBATCH --mail-type=BEGIN,END,FAIL,TIME_OUT
 #SBATCH --chdir="/home/jamesl/rp24_scratch2/jamesl2/ddg_rosetta"
@@ -38,7 +38,7 @@ rosetta_ddg_run \
     --configfile-run $CONFIG_RUN/cartesian2020_ref2015.yaml \
     --configfile-settings $CONFIG_SET/rosettampi.yaml \
     --rosettapath $ROSETTA_DIR \
-    -n 128
+    -n 48
 
 rosetta_ddg_check_run \
     --configfile-run $CONFIG_RUN/cartesian2020_ref2015.yaml
@@ -52,7 +52,7 @@ rosetta_ddg_aggregate \
     -cs $CONFIG_SET/rosettampi.yaml \
     -mf cartesian/mutinfo.txt \
     -od agg_data \
-    -n 128
+    -n 48
 
 echo "running custom aggregation step"
 
