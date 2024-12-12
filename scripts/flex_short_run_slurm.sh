@@ -1,12 +1,12 @@
 #!/bin/bash
-#SBATCH --job-name="RosettaDDG"
+#SBATCH --job-name="RosettaDDG_flex"
 #SBATCH --account=rp24
-#SBATCH --partition=genomics
-#SBATCH --qos=genomics
-#SBATCH --time=4:00:00
+#SBATCH --partition=genomicsb
+#SBATCH --qos=genomicsbq
+#SBATCH --time=72:00:00
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
-#SBATCH --cpus-per-task=48
+#SBATCH --cpus-per-task=98
 #SBATCH --mem=360000
 #SBATCH --mail-user=james.lingford@monash.edu
 #SBATCH --mail-type=BEGIN,END,FAIL,TIME_OUT
@@ -36,11 +36,11 @@ echo "running rosetta ddg!"
 # run rosetta
 rosetta_ddg_run \
     --pdbfile pdb_input/wt_dimer.pdb \
-    --listfile $MUT_DIR/dimer_key_muts.txt \
+    --listfile $MUT_DIR/dimer_all_viet_muts.txt \
     --configfile-run $CONFIG_RUN/flexddg_ref2015.yaml \
     --configfile-settings $CONFIG_SET/rosettampi.yaml \
     --rosettapath $ROSETTA_DIR \
-    -n 48
+    -n 98
 
 echo "done rosetta ddg run!"
 
@@ -55,7 +55,7 @@ rosetta_ddg_aggregate \
     -cs $CONFIG_SET/rosettampi.yaml \
     -mf flexddg/mutinfo.txt \
     -od flexddg_aggdata \
-    -n 48
+    -n 98
 
 echo "running custom aggregation step"
 
