@@ -6,7 +6,7 @@
 #SBATCH --time=72:00:00
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
-#SBATCH --cpus-per-task=98
+#SBATCH --cpus-per-task=48
 #SBATCH --mem=360000
 #SBATCH --mail-user=james.lingford@monash.edu
 #SBATCH --mail-type=BEGIN,END,FAIL,TIME_OUT
@@ -40,7 +40,7 @@ rosetta_ddg_run \
     --configfile-run $CONFIG_RUN/flexddg_ref2015.yaml \
     --configfile-settings $CONFIG_SET/rosettampi.yaml \
     --rosettapath $ROSETTA_DIR \
-    -n 98
+    -n 48
 
 echo "done rosetta ddg run!"
 
@@ -55,7 +55,7 @@ rosetta_ddg_aggregate \
     -cs $CONFIG_SET/rosettampi.yaml \
     -mf flexddg/mutinfo.txt \
     -od flexddg_aggdata \
-    -n 98
+    -n 48
 
 echo "running custom aggregation step"
 
