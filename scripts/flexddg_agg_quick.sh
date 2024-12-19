@@ -9,5 +9,5 @@ rosetta_ddg_aggregate \
     -ca $CONFIG_AGG/aggregate.yaml \
     -cr $CONFIG_RUN/flexddg_ref2015.yaml \
     -cs $CONFIG_SET/rosettampi.yaml \
-    -mf flexddg/mutinfo.txt \
-    -od flexddg_aggdata
+    -mf backup_data_flexddg_P44T/flexddg/mutinfo1.txt \
+    -od flexddg_aggdata_vietmuts
