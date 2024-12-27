@@ -4,7 +4,8 @@
 
 RosettaDDGPrediction is a Python package to run Rosetta-based protocols for the prediction of the ΔΔG of stability upon mutation of a monomeric protein or the ΔΔG of binding upon mutation of a protein complex and analyze the results.
 
-Forked from <https://github.com/ELELAB/RosettaDDGPrediction>
+Forked from <https://github.com/ELELAB/RosettaDDGPrediction>.
+The major difference between the original repo and this fork is that Rosetta is installed into a conda virtual environment to avoid dependency issues.
 
 ## Installation
 
