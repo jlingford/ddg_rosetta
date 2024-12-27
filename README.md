@@ -135,7 +135,7 @@ Alternatively, run custom python scripts on the `rosetta_ddg_scores.csv` file to
 python3 ./scripts/plots/barplot.py
 ```
 
-![barplot](./ddg_barplot.png)
+![barplot](./ddg_barplot_example.png)
 
 ## Citation
 
